@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic Greeting</title>
+</head>
+<body>
+  <h1 id="greeting">Welcome!</h1>
+
+  <script>
+    // JavaScript code here
+
+    const greetings = [
+      "mulibwanji",
+      "Bonjour",
+      "Hola",
+      "Ciao",
+      "Namaste",
+      "Hallo",
+    ];
+
+    // Function to update the greeting
+    function updateGreeting() {
+      const randomIndex = Math.floor(Math.random() * greetings.length);
+      const greetingElement = document.getElementById('greeting');
+      greetingElement.textContent = greetings[randomIndex];
+    }
+
+    // Update the greeting initially
+    updateGreeting();
+
+    // Set interval to update the greeting every 2 minutes
+    setInterval(updateGreeting, 2 * 60 * 1000);
+  </script>
+</body>
+</html>
