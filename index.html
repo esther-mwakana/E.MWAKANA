@@ -1,33 +1,171 @@
-<!DOCTYPEhtml>
+<!DOCTYPE html>
 <html>
-
 <head>
-
-     <title>THIS IS MY WEB PAGE </title>
-     <link rel="stylesheet"href="trinty.css"/>
+    <title>My Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    /* CSS styles for slideshow container and images */
+    .slideshow-container {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  
+    .slideshow-container img {
+      width: 100%;
+      height: auto;
+    }
+  
+    /* CSS styles for slideshow navigation dots */
+    .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+  
+    .active {
+      background-color: #717171;
+    }
+  </style>
 </head>
-     <body> 
-         <nav> 
-<p>ESTHER MWAKANA</p>
+<body>
+    <header>
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="skills.html">MySkils</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+    
+      <h1 id="greeting">Welcome!</h1>
 
-<p>homepage</p>
+      <script>
+        // JavaScript code here
+    
+        const greetings = [
+          "mulibwanji",
+          "mweuli",
+          "mwalamusha",
+          "aswelere",
+          "mwaseliwa",
+          "sakubona",
+          "muli wuli"
+        ];
+    
+        // Function to update the greeting
+        function updateGreeting() {
+          const randomIndex = Math.floor(Math.random() * greetings.length);
+          const greetingElement = document.getElementById('greeting');
+          greetingElement.textContent = greetings[randomIndex];
+        }
+    
+        // Update the greeting initially
+        updateGreeting();
+    
+        // Set interval to update the greeting every 2 minutes
+        setInterval(updateGreeting, 3000);
+      </script>
 
-<P>About<p>
-          </nav>
-<h1>WELCOME TO MY WEB PAGE </h1>
+      <section id="home">
+        
+        <p>Hi, I'm Esther Mwakana, a web developer.<br> 
+           Im passionate about peoples culture       
+        </p>
+         </section>
+  <div class="slideshow-container">
+    <!-- Slides -->
+    
+    <img class="slide" src="..//images/welcome.jpg" height="250" width="300" alt="chewa" />
+    <img class="slide" src="..//images/britain.jpg" height="250" width="300" alt="english" />
+    <img class="slide" src="..//images/chewa.jpg" height="250" width="300" alt="chewa" />
+    <img class="slide" src="..//images/tumbuka.png" height="250" width="300" alt="paige" />
+    <img class="slide" src="..//images/tonga.jpg" height="250" width="300" alt="tonga" />
+    <img class="slide" src="..//images/lomwe.jpg" height="150" width="200" alt="lomwe">
+    <img class="slide" src="..//images/Nyakyusa-tribe-1.jpg" height="250" width="300" alt="Nyakyusa-tribe-1" />
+    <img class="slide" src="..//images/ngoni.jpg" height="250" width="300" alt="ngoni" />
+    <img class="slide" src="..//images/yao.png" height="250" width="300" alt="yawo" />
+    
+    <!-- Navigation dots -->
+    <div style="text-align: center;">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
 
-    <p>Hie, am Esther, a Mzuzu  University student who is studying Education Ict. Am in level 2 first sermister. The course am pursuing is has so far equiped me with the skills of CSS, JAVASCRIPT,c programming and PHP. with this basic knowledge i can apply them to develop web pages and write some programs in c programming. This web page is an example of my experience and nothing more till i gain more and more things.   </p>
+  <script>
+    // JavaScript code here
 
-    <img src="est.jpg" height=300 width=250/>
- <h1>my project</h1> 
+    // Slideshow functionality
+    const slides = document.getElementsByClassName('slide');
+    const dots = document.getElementsByClassName('dot');
+    let currentSlide = 0;
 
-<p>Below is an icon of CSS which will take where CSS page is </p>
+    // Function to show the current slide
+    function showSlide(index) {
+      // Hide all slides
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
 
- <img src="css icon.jpg" height=100 width=90/>
+      // Remove active class from all dots
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(' active', '');
+      }
 
- <h3>my skill</h3>
- <p>I know how to add CSSto a web page.</p>
+      // Show the current slide
+      slides[index].style.display = 'block';
 
+      // Add active class to the corresponding dot
+      dots[index].className += ' active';
+    }
+
+    // Function to switch to the next slide
+    function nextSlide() {
+      currentSlide++;
+      if (currentSlide >= slides.length) {
+        currentSlide = 0;
+      }
+      showSlide(currentSlide);
+    }
+
+    // Function to switch to the previous slide
+    function prevSlide() {
+      currentSlide--;
+      if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+      }
+      showSlide(currentSlide);
+    }
+
+    // Function to handle dot click events
+    function dotClick(index) {
+      currentSlide = index;
+      showSlide(currentSlide);
+    }
+
+    // Add event listeners to the dots
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].addEventListener('click', function() {
+        dotClick(i);
+      });
+    }
+
+    // Show the initial slide
+    showSlide(currentSlide);
+
+    // Set interval to automatically switch slides every 3 seconds
+    setInterval(nextSlide, 3000);
+  </script>
+  <footer>
+    <p>&copy; 2023 Esther Mwakana</p>
+  </footer>
 </body>
 </html>
-
